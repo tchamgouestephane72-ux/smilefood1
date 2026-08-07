@@ -1,0 +1,655 @@
+/* =====================================================================
+   TAR RESTAURANT - Restaurant Website Stylesheet
+   ---------------------------------------------------------------------
+   This file is organized into sections:
+   1. Brand tokens (colors, fonts)      -> edit these first to re-brand
+   2. Base / typography
+   3. Navbar
+   4. Hero + "ticket divider" signature element
+   5. Cards (featured dishes)
+   6. About section
+   7. Opening hours table
+   8. Menu page (tabs)
+   9. Gallery page (grid + lightbox)
+   10. Reservation page (form)
+   11. Floating WhatsApp button
+   12. Rule-based chatbot
+   13. Footer
+   14. Responsive tweaks
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. BRAND TOKENS
+   CHANGE THESE TO MATCH YOUR BRAND.
+   These CSS custom properties control every color in the site.
+   Swap the hex values below and the whole site updates automatically.
+--------------------------------------------------------------------- */
+:root {
+  --primary-color: #8B2E1F;   /* deep brick red  - buttons, links, accents */
+  --secondary-color: #4A2C1D; /* roasted brown   - navbar, footer, headings */
+  --dark-color: #1F1410;      /* near-black coffee - body text, overlays   */
+  --light-color: #FAF3E8;     /* warm cream      - page background         */
+  --accent-color: #C89B3C;    /* aged gold       - dividers, highlights    */
+
+  --font-display: 'Playfair Display', Georgia, serif; /* headings */
+  --font-body: 'Nunito Sans', Arial, sans-serif;       /* paragraphs, UI */
+}
+
+/*
+  GOOGLE FONTS — add this line inside the <head> of every HTML page
+  (already included in the pages generated with this project):
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+*/
+
+/* ---------------------------------------------------------------------
+   2. BASE / TYPOGRAPHY
+--------------------------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  padding-top: 76px; /* offset for fixed navbar */
+}
+
+h1, h2, h3, h4, h5,
+.font-display {
+  font-family: var(--font-display);
+  color: var(--secondary-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #6f2318;
+  border-color: #6f2318;
+}
+
+.btn-outline-light:hover {
+  color: var(--dark-color);
+}
+
+.section-eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.section-padding {
+  padding: 4.5rem 0;
+}
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible,
+button:focus-visible,
+.form-control:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   3. NAVBAR
+--------------------------------------------------------------------- */
+.navbar {
+  background-color: var(--secondary-color);
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+/* Added by JS when the user scrolls past 50px, see script.js */
+.navbar.navbar-scrolled {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--light-color) !important;
+  letter-spacing: 0.02em;
+}
+.navbar-brand span {
+  color: var(--accent-color);
+}
+
+.navbar .nav-link {
+  color: rgba(250, 243, 232, 0.85) !important;
+  font-weight: 600;
+  margin: 0 0.4rem;
+  position: relative;
+}
+
+/* Gold underline that grows under the active / hovered link */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.25s ease;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+}
+.navbar .nav-link.active {
+  color: var(--light-color) !important;
+}
+
+/* ---------------------------------------------------------------------
+   4. HERO + SIGNATURE "TICKET DIVIDER"
+   The zigzag strip below the hero is this site's signature visual
+   element: it mimics a torn restaurant order ticket / receipt edge,
+   tying the brand back to a real restaurant artifact instead of a
+   generic gradient blob.
+--------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(rgba(31, 20, 16, 0.62), rgba(31, 20, 16, 0.72)),
+    url('https://placehold.co/1600x900/3b241b/3b241b');
+  background-size: cover;
+  background-position: center;
+  color: var(--light-color);
+}
+
+.hero .section-eyebrow {
+  color: var(--accent-color);
+}
+
+.hero h1 {
+  color: var(--light-color);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.hero p.lead {
+  color: rgba(250, 243, 232, 0.9);
+  max-width: 40rem;
+}
+
+.hero .btn-lg {
+  padding: 0.75rem 1.6rem;
+  font-weight: 700;
+}
+
+/* The zigzag "ticket" strip */
+.ticket-divider {
+  height: 22px;
+  width: 100%;
+  background-color: var(--light-color);
+  background-image:
+    linear-gradient(45deg, var(--secondary-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--secondary-color) 25%, transparent 25%);
+  background-size: 22px 22px;
+  background-position: 0 -11px;
+}
+
+/* ---------------------------------------------------------------------
+   5. CARDS (Featured Dishes)
+--------------------------------------------------------------------- */
+.dish-card {
+  border: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(31, 20, 16, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+.dish-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 14px 28px rgba(31, 20, 16, 0.18);
+}
+.dish-card img {
+  height: 220px;
+  object-fit: cover;
+}
+.dish-card .price-tag {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+/* ---------------------------------------------------------------------
+   6. ABOUT SECTION
+--------------------------------------------------------------------- */
+.about-img {
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(31, 20, 16, 0.18);
+}
+
+/* ---------------------------------------------------------------------
+   7. OPENING HOURS TABLE
+--------------------------------------------------------------------- */
+.hours-table th {
+  color: var(--secondary-color);
+  font-family: var(--font-display);
+}
+.hours-table tbody tr.today {
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------
+   8. MENU PAGE
+--------------------------------------------------------------------- */
+.menu-hero {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  padding: 3.5rem 0 2.5rem;
+}
+
+.nav-pills .nav-link {
+  color: var(--secondary-color);
+  font-weight: 700;
+  border: 1px solid var(--secondary-color);
+  margin: 0 0.35rem 0.6rem;
+}
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(74, 44, 29, 0.25);
+}
+.menu-item:last-child {
+  border-bottom: none;
+}
+.menu-item .menu-item-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+.menu-item .menu-item-desc {
+  color: #6b5a4c;
+  font-size: 0.92rem;
+}
+.menu-item .menu-item-price {
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--primary-color);
+  align-self: center;
+}
+
+/* ---------------------------------------------------------------------
+   9. GALLERY PAGE
+--------------------------------------------------------------------- */
+.gallery-item {
+  border-radius: 0.4rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+.gallery-item::after {
+  content: "\f52a"; /* bootstrap-icons "zoom-in" glyph fallback text */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-color);
+  background: rgba(31, 20, 16, 0);
+  transition: background 0.3s ease;
+}
+.gallery-item:hover::after {
+  background: rgba(31, 20, 16, 0.28);
+}
+.gallery-item:hover:active{
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------------------------------------------------------------------
+   10. RESERVATION PAGE
+--------------------------------------------------------------------- */
+.reservation-form-wrapper {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(31, 20, 16, 0.1);
+  padding: 2.2rem;
+}
+
+.map-frame {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* ---------------------------------------------------------------------
+   11. FLOATING WHATSAPP BUTTON
+--------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.3rem;
+  z-index: 1079;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(31, 20, 16, 0.28);
+  font-size: 1.65rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  background-color: #1fb85a;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------
+   12. RULE-BASED CHATBOT
+--------------------------------------------------------------------- */
+.chatbot {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1080;
+  font-family: var(--font-body);
+}
+
+.chatbot-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(31, 20, 16, 0.32);
+  font-size: 1.45rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.chatbot-toggle:hover,
+.chatbot-toggle:focus {
+  background-color: #6f2318;
+  transform: translateY(-2px);
+}
+
+.chatbot-notification {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+
+.chatbot-open .chatbot-notification {
+  display: none;
+}
+
+.chatbot-window {
+  position: absolute;
+  right: 0;
+  bottom: 74px;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100vw - 2rem));
+  height: min(620px, calc(100vh - 7rem));
+  overflow: hidden;
+  border: 1px solid rgba(74, 44, 29, 0.16);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 20px 50px rgba(31, 20, 16, 0.3);
+}
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+}
+
+.chatbot-kicker {
+  color: var(--accent-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.chatbot-header h2 {
+  margin: 0;
+  color: var(--light-color);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.chatbot-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(250, 243, 232, 0.28);
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--light-color);
+}
+
+.chatbot-close:hover,
+.chatbot-close:focus {
+  background-color: rgba(250, 243, 232, 0.12);
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #fffaf2;
+}
+
+.chatbot-message {
+  max-width: 86%;
+  margin-bottom: 0.75rem;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.5rem;
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.chatbot-message a {
+  font-weight: 800;
+}
+
+.chatbot-message span {
+  color: #6b5a4c;
+}
+
+.chatbot-message-bot {
+  margin-right: auto;
+  border: 1px solid rgba(74, 44, 29, 0.12);
+  background-color: #fff;
+}
+
+.chatbot-message-user {
+  margin-left: auto;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.chatbot-quick-replies {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(74, 44, 29, 0.1);
+  background-color: #fff;
+}
+
+.chatbot-quick-replies button {
+  flex: 0 0 auto;
+  border: 1px solid rgba(139, 46, 31, 0.35);
+  border-radius: 999px;
+  background-color: #fff;
+  color: var(--primary-color);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.4rem 0.7rem;
+}
+
+.chatbot-quick-replies button:hover,
+.chatbot-quick-replies button:focus {
+  background-color: var(--light-color);
+}
+
+.chatbot-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(74, 44, 29, 0.1);
+  background-color: #fff;
+}
+
+.chatbot-input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(74, 44, 29, 0.22);
+  border-radius: 999px;
+  padding: 0.65rem 0.9rem;
+  color: var(--dark-color);
+}
+
+.chatbot-input:focus {
+  border-color: var(--accent-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.18rem rgba(200, 155, 60, 0.22);
+}
+
+.chatbot-send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.chatbot-send:hover,
+.chatbot-send:focus {
+  background-color: #6f2318;
+}
+
+/* ---------------------------------------------------------------------
+   13. FOOTER
+--------------------------------------------------------------------- */
+footer {
+  background-color: var(--dark-color);
+  color: rgba(250, 243, 232, 0.75);
+  padding: 3rem 0 1.5rem;
+}
+footer h5 {
+  color: var(--light-color);
+  font-family: var(--font-display);
+}
+footer a {
+  color: rgba(250, 243, 232, 0.75);
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--accent-color);
+}
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 243, 232, 0.35);
+  margin-right: 0.5rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.social-icons a:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   14. RESPONSIVE TWEAKS
+--------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  body { padding-top: 68px; }
+  .hero { min-height: 78vh; text-align: center; }
+  .hero p.lead { margin-left: auto; margin-right: auto; }
+  .section-padding { padding: 3rem 0; }
+  .menu-item { flex-direction: column; gap: 0.15rem; }
+  .chatbot {
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 5rem;
+  }
+  .chatbot-window {
+    right: -0.25rem;
+    bottom: 70px;
+    height: min(560px, calc(100vh - 6rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dish-card,
+  .gallery-item img,
+  .navbar .nav-link::after,
+  .whatsapp-float,
+  .chatbot-toggle {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Food | Reservation</title>
+  <meta name="description" content="Book a table at Tar Restaurant in Bonaberi, Douala. Fill in the form and we'll confirm your reservation.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Smile <span>Food</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="menu-hero text-center">
+      <div class="container">
+        <div class="section-eyebrow mb-2">Book a Table</div>
+        <h1 class="text-white">Your table in Bonaberi is waiting</h1>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-7">
+            <div class="reservation-form-wrapper">
+              <div id="formSuccessAlert" class="alert alert-success d-none" role="alert">
+                Thank you, your reservation request has been sent! We'll confirm by phone or email shortly.
+              </div>
+              <div id="formErrorAlert" class="alert alert-danger d-none" role="alert">
+                Sorry, something went wrong sending your request. Please try again, or call us directly.
+              </div>
+
+              <form id="reservationForm"
+                    action="https://formspree.io/f/YOUR_FORM_ID"
+                    method="POST"
+                    class="needs-validation"
+                    novalidate>
+                <input type="hidden" name="_subject" value="New Tar Restaurant Reservation Request">
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" name="name" required>
+                    <div class="invalid-feedback">Please enter your full name.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                    <div class="invalid-feedback">Please enter your phone number.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="guests" class="form-label">Number of Guests</label>
+                    <input type="number" class="form-control" id="guests" name="guests" min="1" max="20" required>
+                    <div class="invalid-feedback">Please enter how many guests (1-20).</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                    <div class="invalid-feedback">Please choose a date.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="time" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="time" name="time" required>
+                    <div class="invalid-feedback">Please choose a time.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="requests" class="form-label">Special Requests <span class="text-muted small">(optional)</span></label>
+                    <textarea class="form-control" id="requests" name="special_requests" rows="3" placeholder="Allergies, seating preference, celebration, etc."></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-lg w-100" id="reservationSubmitBtn">
+                      Send Reservation Request
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <h4 class="mb-3">Find Us</h4>
+            <p class="text-muted">Bonaberi, Douala, Cameroon</p>
+
+            <div class="map-frame">
+              <iframe
+                src="https://www.google.com/maps?q=Bonaberi,Douala,Cameroon&output=embed"
+                width="100%" height="320" style="border:0;" allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Map showing Tar Restaurant location in Bonaberi, Douala">
+              </iframe>
+            </div>
+
+            <div class="mt-4">
+              <p class="mb-1"><i class="bi bi-telephone me-2"></i>683408547</p>
+              <p class="mb-1"><i class="bi bi-envelope me-2"></i>tchamgouestepane72@gmail.com</p>
+              <p class="mb-0"><i class="bi bi-clock me-2"></i>Open daily, 10:00 AM - 11:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Smile Food</h5>
+          <p class="small mb-0">Bonaberi<br>Douala, Cameroon</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p class="small mb-1">683408547</p>
+          <p class="small mb-0">tchamgouestepane72@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4" style="border-color: rgba(250,243,232,0.15);">
+      <p class="small text-center mb-0">&copy; 2026 Smile Food. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

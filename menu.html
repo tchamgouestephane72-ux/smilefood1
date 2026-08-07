@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Food | Menu</title>
+  <meta name="description" content="Explore the Tar Restaurant menu: Cameroon based meals, drinks, wines, whiskeys, and desserts, priced in FCFA.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Smile <span>Food</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="menu-hero text-center">
+      <div class="container">
+        <div class="section-eyebrow mb-2">Our Menu</div>
+        <h1 class="text-white">Cameroon meals, drinks, wines, and whiskeys</h1>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="container">
+        <ul class="nav nav-pills justify-content-center mb-5" id="menuTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="starters-tab" data-bs-toggle="pill" data-bs-target="#starters" type="button" role="tab" aria-controls="starters" aria-selected="true">Starters</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="mains-tab" data-bs-toggle="pill" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">Main Courses</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="drinks-tab" data-bs-toggle="pill" data-bs-target="#drinks" type="button" role="tab" aria-controls="drinks" aria-selected="false">Drinks</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="wine-tab" data-bs-toggle="pill" data-bs-target="#wine" type="button" role="tab" aria-controls="wine" aria-selected="false">Wine</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="whiskeys-tab" data-bs-toggle="pill" data-bs-target="#whiskeys" type="button" role="tab" aria-controls="whiskeys" aria-selected="false">Whiskeys</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="desserts-tab" data-bs-toggle="pill" data-bs-target="#desserts" type="button" role="tab" aria-controls="desserts" aria-selected="false">Desserts</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="menuTabContent">
+          <div class="tab-pane fade show active" id="starters" role="tabpanel" aria-labelledby="starters-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Plantain Chips & Pepper Dip</div>
+                    <div class="menu-item-desc">Thin-fried plantain chips with a smoked tomato-pepper dip.</div>
+                  </div>
+                  <div class="menu-item-price">1,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Koki Corn Bites</div>
+                    <div class="menu-item-desc">Steamed corn and palm oil bites served with pepper sauce.</div>
+                  </div>
+                  <div class="menu-item-price">1,800 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Boiled Groundnuts</div>
+                    <div class="menu-item-desc">Warm salted groundnuts, served with fresh pepper and onions.</div>
+                  </div>
+                  <div class="menu-item-price">2,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Smoked Fish Fritters</div>
+                    <div class="menu-item-desc">Flaked smoked fish fritters, served with a spicy pepper dip.</div>
+                  </div>
+                  <div class="menu-item-price">2,500 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Grilled Tilapia</div>
+                    <div class="menu-item-desc">Whole tilapia grilled with pepper sauce, served with miondo or fried plantain.</div>
+                  </div>
+                  <div class="menu-item-price">4,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Beef Suya</div>
+                    <div class="menu-item-desc">Cameroon-style beef skewers grilled with suya spice, onions, and pepper.</div>
+                  </div>
+                  <div class="menu-item-price">3,800 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Ndole & Plantains</div>
+                    <div class="menu-item-desc">Bitterleaf stew with groundnuts, beef, and prawns, served with ripe plantains.</div>
+                  </div>
+                  <div class="menu-item-price">4,200 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Poulet DG</div>
+                    <div class="menu-item-desc">Chicken, ripe plantains, carrots, peppers, and onions in a rich Cameroon sauce.</div>
+                  </div>
+                  <div class="menu-item-price">4,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Achu Soup</div>
+                    <div class="menu-item-desc">Yellow soup with tender meat, cow skin, and pounded cocoyam.</div>
+                  </div>
+                  <div class="menu-item-price">3,500 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Bissap Ginger</div>
+                    <div class="menu-item-desc">House-made hibiscus drink infused with fresh ginger, served chilled.</div>
+                  </div>
+                  <div class="menu-item-price">1,200 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Fresh Pineapple Juice</div>
+                    <div class="menu-item-desc">Pressed to order, no added sugar.</div>
+                  </div>
+                  <div class="menu-item-price">1,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Cameroon Beer</div>
+                    <div class="menu-item-desc">33cl bottle, served ice cold.</div>
+                  </div>
+                  <div class="menu-item-price">1,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Folly</div>
+                    <div class="menu-item-desc">Traditional palm wine, served fresh when available.</div>
+                  </div>
+                  <div class="menu-item-price">1,500 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="wine" role="tabpanel" aria-labelledby="wine-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">House Red Wine</div>
+                    <div class="menu-item-desc">Smooth red wine served by the glass.</div>
+                  </div>
+                  <div class="menu-item-price">2,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">House White Wine</div>
+                    <div class="menu-item-desc">Crisp white wine served chilled by the glass.</div>
+                  </div>
+                  <div class="menu-item-price">2,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Sweet Red Bottle</div>
+                    <div class="menu-item-desc">A table bottle for grilled fish, chicken, and spicy dishes.</div>
+                  </div>
+                  <div class="menu-item-price">12,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Sparkling Wine</div>
+                    <div class="menu-item-desc">Light sparkling wine for celebrations and group tables.</div>
+                  </div>
+                  <div class="menu-item-price">15,000 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="whiskeys" role="tabpanel" aria-labelledby="whiskeys-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">House Whiskey Shot</div>
+                    <div class="menu-item-desc">Single measure served neat or on ice.</div>
+                  </div>
+                  <div class="menu-item-price">2,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Premium Whiskey Shot</div>
+                    <div class="menu-item-desc">Premium single measure served neat or with a mixer.</div>
+                  </div>
+                  <div class="menu-item-price">3,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Whiskey & Soda</div>
+                    <div class="menu-item-desc">Whiskey poured with soda and ice.</div>
+                  </div>
+                  <div class="menu-item-price">3,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Whiskey Bottle Service</div>
+                    <div class="menu-item-desc">Bottle service with ice and mixers for the table.</div>
+                  </div>
+                  <div class="menu-item-price">25,000 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Puff-Puff & Pepper Syrup</div>
+                    <div class="menu-item-desc">Fresh puff-puff served warm with a light peppered syrup.</div>
+                  </div>
+                  <div class="menu-item-price">1,500 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Caramelized Banana</div>
+                    <div class="menu-item-desc">Sweet banana finished with groundnuts and cream.</div>
+                  </div>
+                  <div class="menu-item-price">2,000 FCFA</div>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <div class="menu-item-name">Coconut Rice Pudding</div>
+                    <div class="menu-item-desc">Warm rice pudding finished with toasted coconut flakes.</div>
+                  </div>
+                  <div class="menu-item-price">1,800 FCFA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Smile Food</h5>
+          <p class="small mb-0">Bonaberi<br>Douala, Cameroon</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p class="small mb-1">683408547</p>
+          <p class="small mb-0">tchamgouestepane72@gmail.com</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4" style="border-color: rgba(250,243,232,0.15);">
+      <p class="small text-center mb-0">&copy; 2026 Smile Food. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
